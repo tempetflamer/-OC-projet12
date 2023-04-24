@@ -1,0 +1,39 @@
+.connexion {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__title {
+        margin-top: 0.75rem;
+    }
+
+    &__btns {
+        margin-top: 0.5rem;
+        display: flex;
+        gap: 3rem;
+
+        a {
+            button {
+                flex-grow: 1;
+                padding: 1rem 2rem;
+                background-color: #f5f5f5;
+                border: solid rgb(225, 225, 225) 1.5px;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #e5e5e5;
+            }
+        }
+    }
+}
+
+header {
+    display: none;
+}

@@ -1,0 +1,16 @@
+.hero {
+    &__title {
+        color: black;
+        line-height: 1.5rem;
+        font-size: 3rem;
+        &__firstname {
+            color: #ff0101;
+        }
+    }
+
+    &__text {
+        margin-top: 2.5rem; //40px
+        font-weight: 400;
+        font-size: 1.125rem;
+    }
+}

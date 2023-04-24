@@ -1,0 +1,9 @@
+.dashboard {
+    display: flex;
+    // height: 5.688rem; //91px // correpond au header
+    // width: 7.313rem; //117px // correspond au sidebar
+    //90px = 5.625rem gauche , 68px = 4.25rem haut
+    /* haut | droit | bas | gauche */
+    margin: 9.938rem 5.625rem 0 12.938rem;
+    flex-direction: column;
+}

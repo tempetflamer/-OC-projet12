@@ -1,0 +1,23 @@
+.charts {
+    background: #fbfbfb;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    width: 835px;
+    height: 320px;
+
+    &__head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &__legend {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            div {
+                p {
+                }
+            }
+        }
+    }
+}
