@@ -1,22 +1,29 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "commonjs": true,
   },
-  extends: [
+  "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended"
   ],
-  parserOptions: {
-    ecmaFeatures: {
+  "overrides": [
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  rules: {
+  "plugins": [
+    "react"
+  ],
+  "rules": {
     "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off"
-  },
-};
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
+    "no-unused-vars": "off"
+  }
+}

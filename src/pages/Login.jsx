@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom'
-import DataUser from '../api/app/data.js'
+//import DataUser from '../api/app/data.js'
 import './Login.scss'
 import ButtonConnection from '../components/ButtonConnection'
 

@@ -1,0 +1,29 @@
+.charts {
+    &__chart-session {
+        background: #ff0000;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+        border-radius: 5px;
+        width: 258px;
+        height: 263px;
+        padding: 0.5rem;
+
+        &__head {
+            /* chanegr après ajout de padding dans chart-session
+                        padding-left: 2rem;
+            padding-top: 1.25rem;
+            */
+            padding-left: 1.75rem;
+            padding-top: 1rem;
+            width: 12rem;
+            &__title {
+                margin: 0;
+                font-size: 15px;
+                color: #ffffff;
+                mix-blend-mode: normal;
+                opacity: 0.7; // normalement 0.5 mais ça rend aps du tout pareil et vraiment très clair
+                font-weight: 500;
+                line-height: 1.5rem;
+            }
+        }
+    }
+}

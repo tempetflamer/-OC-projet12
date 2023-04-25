@@ -1,0 +1,13 @@
+.tooltip {
+    background-color: white;
+    width: 46px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__text {
+        font-size: 10px; //techniquement 8px
+        line-height: 24px;
+        text-align: center;
+    }
+}

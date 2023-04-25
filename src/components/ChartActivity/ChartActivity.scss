@@ -1,0 +1,55 @@
+.charts {
+    &__chart-activity {
+        background: #fbfbfb;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+        border-radius: 5px;
+        width: 835px;
+        height: 320px;
+        padding: 1.5rem;
+
+        &__head {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+
+            &__legend {
+                display: flex;
+                flex-direction: row;
+                margin: 0;
+                gap: 2rem; //32px
+
+                &__data {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem; //12px
+                    &__color--kg {
+                        background: #282d30;
+                        width: 0.5rem; //8px
+                        height: 0.5rem;
+                        border-radius: 50%;
+                    }
+                    &__color--cal {
+                        background: #e60000;
+                        width: 0.5rem; //8px
+                        height: 0.5rem;
+                        border-radius: 50%;
+                    }
+                    &__cal {
+                        color: #74798c;
+                        font-size: 14px;
+                        margin: 0;
+                    }
+                }
+            }
+
+            &__title {
+                font-size: 15px;
+                line-height: 24px;
+                color: #20253a;
+                margin: 0;
+            }
+        }
+    }
+}

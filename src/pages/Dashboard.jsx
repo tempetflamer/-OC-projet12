@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import DataUser from '../api/app/data.js'
+//import DataUser from '../api/app/data.js'
 import { getUserInfos, getUserActivity, getUserPerformance, getUserAverageSessions } from '../utils/getDataApi.js'
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mock/dataMocked.js'
 
@@ -87,17 +87,22 @@ export default function Dashboard() {
   const userPerf = USER_PERFORMANCE.find((data) => data.userId === parseInt(userID))
   console.log('dataID', userInfo, userActivity, userSession, userPerf)
   //div stats data aside>
+  const userAllData = {
+    userInfo,
+    userActivity,
+    userSession,
+    userPerf,
+  }
   return (
     <>
       <Sidebar />
       <Layout className="dashboard">
         <HeroText firstname={userInfo.userInfos.firstName} />
-        <section className="flex-wrap">
-          {/* <div className="charts"></div> */}
-          <Charts userActivity={userActivity} />
 
-          <div className="data"></div>
-        </section>
+        {/* <div className="charts"></div> */}
+        <Charts userActivity={userActivity} userSession={userSession} user={userAllData} className="charts" />
+
+        <div className="data"></div>
       </Layout>
     </>
   )

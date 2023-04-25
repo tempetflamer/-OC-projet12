@@ -4,7 +4,7 @@ import './App.scss'
 import Error404 from './pages/Error404'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 
 import logo from './assets/logo.svg'
 
