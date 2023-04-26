@@ -101,6 +101,7 @@ export default function ChartSession({ userSession, className }) {
             padding={{ right: 5, left: 5 }}
             //domain={['dataMin', 'dataMax + 1']} //sert plus/pas
             /* dy={15} */ stroke="1 1"
+            dy={-30}
           />
           <YAxis dataKey="sessionLength" type="number" hide={true} /> {/* sessionLength => minute */}
           <Tooltip content={<TooltipSession />} wrapperStyle={{ outline: 'none' }} />{' '}
@@ -111,7 +112,7 @@ export default function ChartSession({ userSession, className }) {
             stroke="#ffffff"
             fill="#FF4D4D"
             dot={false}
-            activeDot={{ r: 4, strokeWidth: 4, stroke: 'white' }}
+            activeDot={{ r: 4, strokeWidth: 4, stroke: 'white' /* , onMouseOver: '' */ }}
           />
         </AreaChart>
       </ResponsiveContainer>

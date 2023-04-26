@@ -36,5 +36,12 @@
             align-items: center;
             justify-content: center;
         }
+
+        &__link:hover {
+            background-color: #ff0101;
+            img {
+                filter: invert(100%) saturate(0%) brightness(200%);
+            }
+        }
     }
 }

@@ -11,18 +11,30 @@ const api = axios.create({
   */
 
 export const getUserInfos = async (id) => {
-    // try {
-    //     const res = await api.get(`/user/${id}`);
-    //     return res.data;
-    // } catch(e) {
-    //     console.log(e);
-    // }
-    await api.get(`/user/${id}`).then((res) => {
-        //console.log(res.data)
+    try {
+        const res = await api.get(`/user/${id}`);
         return res.data;
-    }).catch(e => {
+    } catch(e) {
         console.log(e);
-    });
+    }
+    //     return await api.get(`/user/${id}`).then((res) => {
+    //         console.log('axios', res.data)
+    //         return res.data;
+    //     }).catch(e => {
+    //         console.log(e);
+    //     });
+};
+
+export const getUserInfos2 = async (id) => {
+    fetch(`http:/localhost:3000//user/${id}`)
+        .then(res => res.json())
+        .then(res => {
+            console.log('fetch', res.data)
+            return res.data;
+        })
+        .catch(e => {
+            console.log(e);
+        });
 };
 
 /**

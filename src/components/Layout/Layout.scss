@@ -4,6 +4,12 @@
     // width: 7.313rem; //117px // correspond au sidebar
     //90px = 5.625rem gauche , 68px = 4.25rem haut
     /* haut | droit | bas | gauche */
-    margin: 9.938rem 5.625rem 0 12.938rem;
+    margin: 9.938rem 5.625rem 0 12.938rem; // placer dans un wrap-layout
+    margin: 9.938rem auto auto;
+    padding-left: 3.656rem; //58px presque la moité de sidebar width, 3.656rem; = 58.5px
     flex-direction: column;
+
+    // margin-left: calc(45%);
+    // margin-right: calc(45%);
+    //transform: translateX(-50%);
 }

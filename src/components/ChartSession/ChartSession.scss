@@ -27,3 +27,16 @@
         }
     }
 }
+
+.recharts-layer .recharts-cartesian-axis .recharts-xAxis .xAxis {
+    margin-bottom: -25px !important;
+}
+
+.recharts-cartesian-axis {
+    position: relative;
+    padding-bottom: -15px !important;
+    margin-bottom: -65px !important;
+    color: aqua;
+    width: 40px;
+    border: blue;
+}

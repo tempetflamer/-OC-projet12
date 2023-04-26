@@ -1,0 +1,6 @@
+@import "../../utils/mixins.scss";
+
+.perfs {
+    @include flex-columns;
+    gap: 2rem;
+}
