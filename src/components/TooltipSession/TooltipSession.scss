@@ -1,13 +1,16 @@
-.tooltip {
-    background-color: white;
-    width: 46px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &__text {
-        font-size: 10px; //techniquement 8px
-        line-height: 24px;
-        text-align: center;
+.charts__chart-session {
+    .tooltip {
+        margin-right: 0.4rem; // to avoid the last 7 to be hors zone
+        background-color: white;
+        width: 46px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &__text {
+            font-size: 10px; //techniquement 8px
+            line-height: 24px;
+            text-align: center;
+        }
     }
 }

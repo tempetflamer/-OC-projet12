@@ -2,6 +2,7 @@ import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 import './ChartActivity.scss'
+import TooltipActivity from '../TooltipActivity/TooltipActivity'
 
 export default function ChartActivity({ userActivity, className }) {
   return (
@@ -37,7 +38,7 @@ export default function ChartActivity({ userActivity, className }) {
             dx={15} // espacement des legend axe x
           />
           <YAxis yAxisId="calories" dataKey="calories" type="number" /* domain={['dataMin - 20', 'dataMax + 10']} */ hide={true} />
-          <Tooltip content="" wrapperStyle={{ outline: 'none' }} />
+          <Tooltip content={<TooltipActivity />} wrapperStyle={{ outline: 'none' }} />
           <Bar yAxisId="kilogram" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
           <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]} />
         </BarChart>

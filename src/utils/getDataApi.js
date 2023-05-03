@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({
+export const api = axios.create({
     baseURL: `http://localhost:3000/`
 });
 
@@ -17,6 +17,7 @@ export const getUserInfos = async (id) => {
     } catch(e) {
         console.log(e);
     }
+    // used when non async fonction 
     //     return await api.get(`/user/${id}`).then((res) => {
     //         console.log('axios', res.data)
     //         return res.data;
@@ -43,17 +44,17 @@ export const getUserInfos2 = async (id) => {
  * @returns {Array}
  */
 export const getUserActivity = async (id) => {
-    // try {
-    //     const res = await api.get(`/user/${id}/activity`);
-    //     return res.data;
-    // } catch(e) {
-    //     console.log(e);
-    // }
-    await api.get(`/user/${id}/activity`).then((res) => {
+    try {
+        const res = await api.get(`/user/${id}/activity`);
         return res.data;
-    }).catch(e => {
+    } catch(e) {
         console.log(e);
-    });
+    }
+    // await api.get(`/user/${id}/activity`).then((res) => {
+    //     return res.data;
+    // }).catch(e => {
+    //     console.log(e);
+    // });
 
 }
 
@@ -64,11 +65,17 @@ export const getUserActivity = async (id) => {
    */
 
 export const getUserPerformance = async (id) => {
-    await api.get(`/user/${id}/performance`).then((res) => {
+    try {
+        const res = await api.get(`/user/${id}/performance`);
         return res.data;
-    }).catch(e => {
+    } catch(e) {
         console.log(e);
-    });
+    }
+    // await api.get(`/user/${id}/performance`).then((res) => {
+    //     return res.data;
+    // }).catch(e => {
+    //     console.log(e);
+    // });
 };
 
 /**
@@ -78,9 +85,15 @@ export const getUserPerformance = async (id) => {
    */
 
 export const getUserAverageSessions = async (id) => {
-    await api.get(`/user/${id}/average-sessions`).then((res) => {
+    try {
+        const res = await api.get(`/user/${id}/average-sessions`);
         return res.data;
-    }).catch(e => {
+    } catch(e) {
         console.log(e);
-    });
+    }
+    // await api.get(`/user/${id}/average-sessions`).then((res) => {
+    //     return res.data;
+    // }).catch(e => {
+    //     console.log(e);
+    // });
 }; 

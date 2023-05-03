@@ -5,17 +5,30 @@
         border-radius: 5px;
         width: 258px;
         height: 263px;
-        padding: 0.5rem;
+        //padding: 0.25rem;
+        overflow: hidden;
+
+        @media screen and (max-width: 1280px) {
+            width: 30%;
+        }
+        @media screen and (max-width: 960px) {
+            width: 100%;
+        }
 
         &__head {
+            position: relative;
             /* chanegr après ajout de padding dans chart-session
                         padding-left: 2rem;
             padding-top: 1.25rem;
             */
-            padding-left: 1.75rem;
-            padding-top: 1rem;
+            // padding-left: 1.75rem;
+            // padding-top: 1rem;
             width: 12rem;
             &__title {
+                position: absolute;
+                z-index: 2;
+                padding-left: 1.75rem;
+                padding-top: 1rem;
                 margin: 0;
                 font-size: 15px;
                 color: #ffffff;
@@ -26,6 +39,13 @@
             }
         }
     }
+}
+
+.session-responsive {
+    // position: relative;
+    // z-index: 2;
+    padding-top: 2.5rem;
+    background: #ff0000;
 }
 
 .recharts-layer .recharts-cartesian-axis .recharts-xAxis .xAxis {
@@ -39,4 +59,15 @@
     color: aqua;
     width: 40px;
     border: blue;
+}
+
+.xAxis {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.areaTest {
+    padding: 2rem;
 }

@@ -13,6 +13,7 @@ import UserPerf from '../components/userPerf/userPerf'
 import './Dashboard.scss'
 
 export default function Dashboard() {
+  console.log('render')
   let users = []
   let setData = []
   //const { setData } = useState([])
@@ -66,10 +67,10 @@ export default function Dashboard() {
     data = await getUserInfos(id)
     return data
   }
-  console.log(getData(userID))
-  console.log(Promise.resolve(getData(userID)))
+  // console.log(getData(userID))
+  // console.log(Promise.resolve(getData(userID)))
   data2 = getData(userID)
-  console.log('data2 :', data2)
+  // console.log('data2 :', data2)
   //console.log(new Promise(getData))
 
   /*   useEffect(() => {
@@ -82,17 +83,17 @@ export default function Dashboard() {
     data()
   }, [userID]) */
 
-  //ça marche, ah non
+  //ça marche, ah non - c bon
   let data = []
   const datas = async () => {
-    console.log('dernier test data')
+    // console.log('dernier test data')
     const request = await getUserInfos(userID)
-    console.log('request :', request)
+    //console.log('request :', request)
     setData.push(request)
-    console.log('résultat du push tableau setData', await setData)
+    // console.log('résultat du push tableau setData', await setData)
   }
   datas()
-  console.log(setData)
+  // console.log(setData)
 
   const [data4, setData4] = useState([])
 
@@ -130,7 +131,7 @@ export default function Dashboard() {
       <Layout className="dashboard">
         <HeroText firstname={userInfo.userInfos.firstName} />
         <div className="flex-wrap">
-          <Charts userActivity={userActivity} userSession={userSession} user={userAllData} className="charts" />
+          <Charts userActivity={userActivity} userSession={userSession} user={userAllData} className="charts" userID={userID} />
           <UserPerf userInfo={userInfo} />
         </div>
 

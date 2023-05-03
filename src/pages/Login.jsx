@@ -8,6 +8,7 @@ import logoName from '../assets/logo-name.svg'
 
 export default function Login() {
   let users = [12, 18]
+  console.log('render')
 
   return (
     <div className="connexion">
