@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 //import DataUser from '../api/app/data.js'
-import { getUserInfos, getUserActivity, getUserPerformance, getUserAverageSessions, getUserInfos2 } from '../utils/getDataApi.js'
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../mock/dataMocked.js'
+import { getUserInfos, getUserActivity, getUserPerformance, getUserAverageSessions, getUserInfos2 } from '../../utils/getDataApi.js'
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../mock/dataMocked.js'
 
-import Sidebar from '../components/Sidebar/Sidebar'
-import Layout from '../components/Layout/Layout'
-import HeroText from '../components/HeroText/HeroText'
-import Charts from '../components/Charts/Charts.jsx'
-import UserPerf from '../components/userPerf/userPerf'
+import Sidebar from '../../components/Sidebar/Sidebar.jsx'
+import Layout from '../../components/Layout/Layout.jsx'
+import HeroText from '../../components/HeroText/HeroText.jsx'
+import Charts from '../../components/Charts/Charts.jsx'
+import UserPerf from '../../components/userPerf/userPerf.jsx'
 
 import './Dashboard.scss'
 
 export default function Dashboard() {
-  console.log('render')
+  console.log('render dashboard')
   let users = []
   let setData = []
   //const { setData } = useState([])
@@ -131,7 +131,7 @@ export default function Dashboard() {
       <Layout className="dashboard">
         <HeroText firstname={userInfo.userInfos.firstName} />
         <div className="flex-wrap">
-          <Charts userActivity={userActivity} userSession={userSession} user={userAllData} className="charts" userID={userID} />
+          <Charts user={userAllData} className="charts" userID={userID} />
           <UserPerf userInfo={userInfo} />
         </div>
 

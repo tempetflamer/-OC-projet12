@@ -1,10 +1,117 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 import './ChartActivity.scss'
 import TooltipActivity from '../TooltipActivity/TooltipActivity'
+import useUserActivity from '../../hooks/useUserActivity'
+import useFormatter from '../../hooks/useFormatter'
 
-export default function ChartActivity({ userActivity, className }) {
+export default function ChartActivity({ userID, className }) {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    setData([])
+    try {
+      const userActivity = useUserActivity(18)
+      console.log('use Formatter userActivity chartActivity 0', userActivity)
+
+      const resF = userActivity.data.sessions.map(function (data) {
+        let splitDays = data.day.split('-').pop()
+        if (splitDays.charAt(0) === '0') {
+          splitDays = splitDays.substring(1)
+        }
+        return { ...data, day: splitDays }
+      })
+      console.log('userActivity chartActivity 2', resF)
+      setData(resF)
+    } catch (e) {
+      setData([])
+    }
+  }, [])
+
+  console.log('data zzzz', data)
+  // const [data, setData] = useState([])
+
+  // useEffect(() => {
+  //   setData([])
+
+  //   // let res = api.get(`/user/${id}/average-sessions`)
+  //   // console.log('res session', res)
+  //   // console.log('res.data session ', res.data)
+
+  //   try {
+  //     const userActivity = useUserActivity(18)
+  //     console.log('use Formatter userActivity chartActivity 0', userActivity)
+
+  //     // const res = useUserActivity(18)
+  //     // console.log('userActivity chartActivity 1', res)
+
+  //     const resF = userActivity.data.sessions.map(function (data) {
+  //       let splitDays = data.day.split('-').pop()
+  //       if (splitDays.charAt(0) === '0') {
+  //         splitDays = splitDays.substring(1)
+  //       }
+  //       return { ...data, day: splitDays }
+  //     })
+  //     console.log('userActivity chartActivity 2', resF)
+  //     setData(resF)
+  //   } catch (e) {
+  //     setData([])
+  //   }
+  // }, [])
+
+  const userActivity = useUserActivity(18)
+  console.log('userActivity chartActivity', userActivity, userActivity.data, userActivity.data.sessions)
+  // const userActivity = async () => {
+  //   const res = await useUserActivity(18)//.promise()
+  //   return res
+  // }
+  // console.log('use Formatter userActivity chartActivity 0', userActivity)
+
+  // const res = useUserActivity(18)
+  // console.log('userActivity chartActivity 1', res)
+
+  // const resF = userActivity.data.sessions.map(function (data) {
+  //   let splitDays = data.day.split('-').pop()
+  //   if (splitDays.charAt(0) === '0') {
+  //     splitDays = splitDays.substring(1)
+  //   }
+  //   return { ...data, day: splitDays }
+  // })
+  // console.log('userActivity chartActivity 2', resF)
+
+  // var rest = ''
+  // const userActivity2 = async () => {
+  //   const res = useUserActivity(18) //.promise()
+
+  //   const resF = res.data.sessions.map(function (data) {
+  //     let splitDays = data.day.split('-').pop()
+  //     if (splitDays.charAt(0) === '0') {
+  //       splitDays = splitDays.substring(1)
+  //     }
+  //     return { ...data, day: splitDays }
+  //   })
+  //   rest = resF
+  //   return resF
+  // }
+  // console.log('use Formatter userActivity chartActivity 0', userActivity2, rest)
+  // console.log('rest', rest)
+  /* error console log
+  use Formatter userActivity chartActivity 0 async () => {
+    _s();
+    const res = (0,_hooks_useUserActivity__WEBPACK_IMPORTED_MODULE_3__["default"])(18); //.promise()
+
+    const resF = res.data.sessions.map(function (data) {
+      let splitD…
+      */
+
+  // const res = userActivity.map(function (value) {
+  //   console.log('userActicity test map', value)
+  // })
+  //Cannot read properties of undefined (reading 'map')
+  //userActivity.data.map,userActivity.data.map, ... is not a function
+  //Cannot read properties of undefined (reading 'sessions')
+
   return (
     <article className="charts__chart-activity">
       <div className="charts__chart-activity__head">
@@ -22,7 +129,9 @@ export default function ChartActivity({ userActivity, className }) {
       </div>
       {/* height="145px" width="702px" */}
       <ResponsiveContainer height="85%" width="100%">
-        <BarChart data={userActivity.sessions} barGap={8} /* barCategoryGap={1} */>
+        {/*userActivity.data.sessions*/}
+        <BarChart data={data.sessions} barGap={8} /* barCategoryGap={1} */>
+          {/* userActivity.data.sessions resF data*/}
           <CartesianGrid vertical={false} strokeDasharray="4 4" />
           <XAxis dataKey="day" tickLine={false} tick={{ fontSize: 14 }} dy={15} stroke="1 1" />
           <YAxis
@@ -36,6 +145,7 @@ export default function ChartActivity({ userActivity, className }) {
             tickLine={false} //retrait des trait de chaque tick
             tick={{ fontSize: 14 }} // taille legend axe x
             dx={15} // espacement des legend axe x
+            domain={['dataMin - 2', 'dataMax + 1']} // permet de définir l'échelle d el'axe des poids si poind min = 69 et poid max =70 then echelle min  = 67, max 74 avec 59 aux milieu, par le même moyen si on devait mettre datamin -1 alors l'échelle serait de 68 à 71 sans milieu
           />
           <YAxis yAxisId="calories" dataKey="calories" type="number" /* domain={['dataMin - 20', 'dataMax + 10']} */ hide={true} />
           <Tooltip content={<TooltipActivity />} wrapperStyle={{ outline: 'none' }} />

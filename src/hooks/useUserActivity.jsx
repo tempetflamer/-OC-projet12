@@ -1,7 +1,7 @@
 import { api } from '../utils/getDataApi.js'
 import { useEffect, useState } from 'react'
 
-export default function useUserInfos(id) {
+export default function useUserActivity(id) {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState()
@@ -13,11 +13,18 @@ export default function useUserInfos(id) {
 
     const getUserInfos = async (id) => {
       try {
-        const res = await api.get(`/user/${id}`)
+        let res = await api.get(`/user/${id}/activity`)
+        console.log('res activity userActivity', res)
+        // const resF = res.data.data.sessions.map(function (data) {
+        //   let splitDays = data.day.split('-').pop()
+        //   if (splitDays.charAt(0) === '0') {
+        //     splitDays = splitDays.substring(1)
+        //   }
+        //   return { ...data, day: splitDays }
+        // })
         setError(undefined)
         setIsLoading(false)
-        console.log('res', res)
-        console.log('res.data', res.data)
+        //setData(resF)
         setData(res.data.data)
       } catch (e) {
         setData([])
@@ -27,6 +34,6 @@ export default function useUserInfos(id) {
     }
     getUserInfos(id)
   }, [])
-  console.log('data', data)
+  console.log('data activity fetch', data)
   return { data, isLoading, error }
 }
