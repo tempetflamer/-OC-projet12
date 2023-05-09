@@ -1,4 +1,5 @@
 import React, { PureComponent, useRef, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { LineChart, Line, AreaChart, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
 import { USER_AVERAGE_SESSIONS } from '../../mock/dataMocked.js'
 import useUserInfos from '../../hooks/useUserInfos.jsx'
@@ -7,16 +8,46 @@ import useUserSession from '../../hooks/useUserSession'
 import './ChartSession.scss'
 import TooltipSession from '../TooltipSession/TooltipSession'
 
-export default function ChartSession({ className, userID }) {
+export default function ChartSession({ className }) {
+  const { userID } = useParams()
   const refEventChart = useRef(0)
   // let setData = []
   // const request = useUserInfos(userID)
   // setData.push(request.data.data)
   // console.log('request', request.data, setData)
 
-  //mocked data
-  const userSession = USER_AVERAGE_SESSIONS.find((data) => data.userId === parseInt(userID))
+  //*mocked data
+  // const userSession = USER_AVERAGE_SESSIONS.find((data) => data.userId === parseInt(userID))
+  // console.log('userSession', userSession)
+
+  // let setData = []
+  let userSession = useUserSession(userID)
   console.log('userSession', userSession)
+  const formatData = async () => {
+    userSession = userSession.data.data.sessions.map(function (session) {
+      switch (session.day) {
+        case 1:
+          return { ...session, day: 'L' }
+        case 2:
+          return { ...session, day: 'M' }
+        case 3:
+          return { ...session, day: 'M' }
+        case 4:
+          return { ...session, day: 'J' }
+        case 5:
+          return { ...session, day: 'V' }
+        case 6:
+          return { ...session, day: 'S' }
+        case 7:
+          return { ...session, day: 'D' }
+        default:
+          return { ...session }
+      }
+    })
+    //res = res.reverse() //pour réordonner le tableau dans le sens contraire
+  }
+  formatData()
+  console.log('res test async usersession', userSession)
 
   // let setData = []
   // const reqUserSession = useUserSession(userID)
@@ -77,7 +108,7 @@ export default function ChartSession({ className, userID }) {
         <AreaChart
           height="100%"
           width="100%"
-          data={userSession.sessions} /* barCategoryGap={1} */
+          data={userSession} /* barCategoryGap={1} */ /* userSession.sessions for mocked*/
           onMouseMove={(e) => {
             const div = refEventChart.current.current
             if (e.isTooltipActive) {
@@ -107,7 +138,6 @@ export default function ChartSession({ className, userID }) {
             dy={-50}
             //dx={(-15, -15)}
             // dx={-8}
-            dx={{ left: 55, right: 55 }}
             minTickGap={3} // =default 5
             interval="preserveStartEnd"
             //offset={8} //marche pas
@@ -121,7 +151,7 @@ export default function ChartSession({ className, userID }) {
             //tickMargin={5} // change la hauteur el la legend ce que jai mis en dy
             //ticks={[1, 2, 3, 4, 5, 6, 7]}
             //domain={[1, 7]}
-            mirror={true} // allow to see label inside the chart au lieu d'outside
+            mirror={true} // allow to see label (L, M,...) inside the chart au lieu d'outside
             //scale="auto"
           />
           <YAxis dataKey="sessionLength" type="number" hide={true} /> {/* sessionLength => minute */}

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-//import DataUser from '../api/app/data.js'
 import { getUserInfos, getUserActivity, getUserPerformance, getUserAverageSessions, getUserInfos2 } from '../../utils/getDataApi.js'
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../mock/dataMocked.js'
 
@@ -9,6 +8,7 @@ import Layout from '../../components/Layout/Layout.jsx'
 import HeroText from '../../components/HeroText/HeroText.jsx'
 import Charts from '../../components/Charts/Charts.jsx'
 import UserPerf from '../../components/userPerf/userPerf.jsx'
+import useUserInfos from '../../hooks/useUserInfos.jsx'
 
 import './Dashboard.scss'
 
@@ -19,6 +19,21 @@ export default function Dashboard() {
   //const { setData } = useState([])
   //const [data, setData] = useState([]);
   const { userID } = useParams()
+
+  // let userInfo2 = useUserInfos(userID)
+  // console.log('userInfo dashboard', userInfo2)
+
+  // const formatData = async () => {
+  //   userActivity = userActivity.data.sessions.map(function (data) {
+  //     let splitDays = data.day.split('-').pop()
+  //     if (splitDays.charAt(0) === '0') {
+  //       splitDays = splitDays.substring(1)
+  //     }
+  //     return { ...data, day: splitDays }
+  //   })
+  // }
+  // formatData()
+  // console.log('res test async userActivity', userActivity)
 
   //const request = getUserInfos(userID)
   //request == '' ? (setData = request.data) : (setData = null)
@@ -70,7 +85,7 @@ export default function Dashboard() {
   // console.log(getData(userID))
   // console.log(Promise.resolve(getData(userID)))
   data2 = getData(userID)
-  // console.log('data2 :', data2)
+  console.log('data2 :', data2.data)
   //console.log(new Promise(getData))
 
   /*   useEffect(() => {
@@ -93,7 +108,7 @@ export default function Dashboard() {
     // console.log('résultat du push tableau setData', await setData)
   }
   datas()
-  // console.log(setData)
+  //console.log('setData++', setData)
 
   const [data4, setData4] = useState([])
 
@@ -108,9 +123,9 @@ export default function Dashboard() {
     }
     datas()
   }, [userID])
-  //console.log(setData4)
+  //console.log('setdata4', setData4)
 
-  //Data temporaire
+  //*DataMock
   //console.log(USER_MAIN_DATA)
   const userInfo = USER_MAIN_DATA.find((data) => data.id === parseInt(userID))
   const userActivity = USER_ACTIVITY.find((data) => data.userId === parseInt(userID))
@@ -131,11 +146,9 @@ export default function Dashboard() {
       <Layout className="dashboard">
         <HeroText firstname={userInfo.userInfos.firstName} />
         <div className="flex-wrap">
-          <Charts user={userAllData} className="charts" userID={userID} />
-          <UserPerf userInfo={userInfo} />
+          <Charts className="charts" />
+          <UserPerf />
         </div>
-
-        <div className="data"></div>
       </Layout>
       {/* </div> */}
     </>

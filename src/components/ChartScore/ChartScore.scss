@@ -14,6 +14,9 @@
 
         @media screen and (max-width: 1280px) {
             width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         //a revoir
         @media screen and (max-width: 960px) {
@@ -34,6 +37,14 @@
             font-size: 15px;
             line-height: 24px;
             color: #20253a;
+            @media screen and (max-width: 1280px) {
+                width: 100%;
+                padding-left: 0.5rem;
+            }
+            @media screen and (max-width: 960px) {
+                width: auto;
+                padding-left: 0;
+            }
         }
         &__text {
             position: absolute;

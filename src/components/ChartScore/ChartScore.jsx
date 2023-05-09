@@ -1,10 +1,12 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import useUserScore from '../../hooks/useUserInfos'
 
 import './ChartScore.scss'
 
-export default function ScoreChart({ className, userID }) {
+export default function ScoreChart({ className }) {
+  const { userID } = useParams()
   const userScore = useUserScore(userID)
   const score = [{ value: userScore.data.todayScore || userScore.data.score }, { value: 1 - (userScore.data.todayScore || userScore.data.score) }]
   const colors = ['#ff0000', '#FBFBFB']

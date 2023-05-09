@@ -16,8 +16,8 @@ export default function useUserInfos(id) {
         const res = await api.get(`/user/${id}`)
         setError(undefined)
         setIsLoading(false)
-        console.log('res', res)
-        console.log('res.data', res.data)
+        // console.log('res', res)
+        // console.log('res.data', res.data)
         setData(res.data.data)
       } catch (e) {
         setData([])

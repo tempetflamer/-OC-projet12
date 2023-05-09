@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react'
+import { useParams } from 'react-router-dom'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
 import useFormaterUserPerf from '../../hooks/useFormaterUserPerf'
 import useUserPerf from '../../hooks/useFormaterUserPerf'
 
 import './ChartPerf.scss'
 
-export default function ChartPerf({ className, userID }) {
-  // // en faite je peux récupérer l'id directement dans useparam sur chaque page plutôt que de le transmettre
+export default function ChartPerf({ className }) {
+  const { userID } = useParams()
+  // //* en faite je peux récupérer l'id directement dans useparam sur chaque page plutôt que de le transmettre
   // const [data, setData] = useState([])
 
-  // // use effetc marche pas, aucune donnée ne charge, data null
+  // //* use effetc marche pas, aucune donnée ne charge, data null
   // useEffect(() => {
   //   async function dataPerf() {
   //     const request = await useUserPerf(18)

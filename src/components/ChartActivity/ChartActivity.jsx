@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 import './ChartActivity.scss'
@@ -6,30 +7,45 @@ import TooltipActivity from '../TooltipActivity/TooltipActivity'
 import useUserActivity from '../../hooks/useUserActivity'
 import useFormatter from '../../hooks/useFormatter'
 
-export default function ChartActivity({ userID, className }) {
-  const [data, setData] = useState([])
+export default function ChartActivity({ className }) {
+  const { userID } = useParams()
+  let userActivity = useUserActivity(userID)
+  console.log('userActivity', userActivity)
+  const formatData = async () => {
+    userActivity = userActivity.data.sessions.map(function (data) {
+      let splitDays = data.day.split('-').pop()
+      if (splitDays.charAt(0) === '0') {
+        splitDays = splitDays.substring(1)
+      }
+      return { ...data, day: splitDays }
+    })
+  }
+  formatData()
+  console.log('res test async userActivity', userActivity)
 
-  useEffect(() => {
-    setData([])
-    try {
-      const userActivity = useUserActivity(18)
-      console.log('use Formatter userActivity chartActivity 0', userActivity)
+  // const [data, setData] = useState([])
 
-      const resF = userActivity.data.sessions.map(function (data) {
-        let splitDays = data.day.split('-').pop()
-        if (splitDays.charAt(0) === '0') {
-          splitDays = splitDays.substring(1)
-        }
-        return { ...data, day: splitDays }
-      })
-      console.log('userActivity chartActivity 2', resF)
-      setData(resF)
-    } catch (e) {
-      setData([])
-    }
-  }, [])
+  // useEffect(() => {
+  //   setData([])
+  //   try {
+  //     const userActivity = useUserActivity(18)
+  //     console.log('use Formatter userActivity chartActivity 0', userActivity)
 
-  console.log('data zzzz', data)
+  //     const resF = userActivity.data.sessions.map(function (data) {
+  //       let splitDays = data.day.split('-').pop()
+  //       if (splitDays.charAt(0) === '0') {
+  //         splitDays = splitDays.substring(1)
+  //       }
+  //       return { ...data, day: splitDays }
+  //     })
+  //     console.log('userActivity chartActivity 2', resF)
+  //     setData(resF)
+  //   } catch (e) {
+  //     setData([])
+  //   }
+  // }, [])
+
+  // console.log('data zzzz', data)
   // const [data, setData] = useState([])
 
   // useEffect(() => {
@@ -60,8 +76,10 @@ export default function ChartActivity({ userID, className }) {
   //   }
   // }, [])
 
-  const userActivity = useUserActivity(18)
-  console.log('userActivity chartActivity', userActivity, userActivity.data, userActivity.data.sessions)
+  //*dataMock
+  const userActivityMock = useUserActivity(18)
+  console.log('userActivity chartActivity', userActivityMock, userActivityMock.data, userActivityMock.data.sessions)
+
   // const userActivity = async () => {
   //   const res = await useUserActivity(18)//.promise()
   //   return res
@@ -130,15 +148,14 @@ export default function ChartActivity({ userID, className }) {
       {/* height="145px" width="702px" */}
       <ResponsiveContainer height="85%" width="100%">
         {/*userActivity.data.sessions*/}
-        <BarChart data={data.sessions} barGap={8} /* barCategoryGap={1} */>
+        <BarChart data={userActivity} barGap={8} /* barCategoryGap={1} */ /* mocked userActivityMock.sessions */>
           {/* userActivity.data.sessions resF data*/}
           <CartesianGrid vertical={false} strokeDasharray="4 4" />
-          <XAxis dataKey="day" tickLine={false} tick={{ fontSize: 14 }} dy={15} stroke="1 1" />
+          <XAxis dataKey="day" tickLine={false} tick={{ fontSize: 14, fontWeight: 500, fill: '#9B9EAC' }} dy={15} stroke="1 1" />
           <YAxis
             yAxisId="kilogram"
             dataKey="kilogram"
             type="number"
-            //domain={['dataMin - 2', 'dataMax + 1']}
             tickCount="3"
             axisLine={false}
             orientation="right"
