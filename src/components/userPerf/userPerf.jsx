@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import UserKeyData from '../UserKeyData/UserKeyData'
 import useUserInfos from '../../hooks/useUserInfos.jsx'
@@ -8,23 +7,12 @@ import iconChicken from '../../assets/chicken.svg'
 import iconApple from '../../assets/apple.svg'
 import iconBurger from '../../assets/cheeseburger.svg'
 
+/** Display of the section containing all userKeyDatas
+ * @return {JSX}
+ */
 export default function userPerf() {
   const { userID } = useParams()
-  // const [userInfo, setUserInfo] = useState(false)
-
-  // const getUserInfo = useUserInfos(userID)
-  // setUserInfo(getUserInfo)
-
-  // let userInfo = ''
-  // console.log('userInfo userPerf', userInfo)
-  // const getUserInfo = async () => {
-  //   userInfo = await useUserInfos(userID)
-  // }
-  // getUserInfo()
-  // console.log('userInfo userPerf', userInfo)
-
   const userInfo = useUserInfos(userID)
-  console.log('userInfo userPerf', userInfo)
 
   return (
     <section className="perfs">

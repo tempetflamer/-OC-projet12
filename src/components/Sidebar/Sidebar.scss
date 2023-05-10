@@ -7,10 +7,9 @@
     align-items: center;
     position: fixed;
     top: 0;
-    //padding: 2rem 1.5rem; //+ height header 5.688rem
     padding: 7.688rem 1.5rem 2rem 1.5rem;
     height: 100vh;
-    width: 7.313rem; //117px
+    width: 7.313rem;
     justify-content: flex-end;
 
     &__copyright {
@@ -24,13 +23,13 @@
     &__nav {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem; //20px
+        gap: 1.25rem;
         height: 80%;
         justify-content: center;
 
         &__link {
             background-color: white;
-            width: 4rem; //64px
+            width: 4rem;
             height: 4rem;
             display: flex;
             align-items: center;

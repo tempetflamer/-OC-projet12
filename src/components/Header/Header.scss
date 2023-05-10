@@ -1,5 +1,5 @@
 header {
-    height: 5.688rem; //91px
+    height: 5.688rem;
     width: 100%;
     padding: 1.25rem 2rem 1.25rem 2rem;
     display: flex;
@@ -10,8 +10,6 @@ header {
     gap: 2rem;
     z-index: 1;
     position: fixed;
-    img {
-    }
     nav {
         width: inherit;
         display: flex;
@@ -23,7 +21,7 @@ header {
             cursor: pointer;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
-            line-height: 1.5rem; //24px
+            line-height: 1.5rem;
         }
         a:hover {
             background: white;

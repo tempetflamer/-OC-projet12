@@ -21,25 +21,26 @@
                 display: flex;
                 flex-direction: row;
                 margin: 0;
-                gap: 2rem; //32px
+                gap: 2rem;
 
                 &__data {
                     display: flex;
                     align-items: center;
-                    gap: 0.75rem; //12px
+                    gap: 0.75rem;
                     &__color--kg {
                         background: #282d30;
-                        width: 0.5rem; //8px
+                        width: 0.5rem;
                         height: 0.5rem;
                         border-radius: 50%;
                     }
                     &__color--cal {
                         background: #e60000;
-                        width: 0.5rem; //8px
+                        width: 0.5rem;
                         height: 0.5rem;
                         border-radius: 50%;
                     }
-                    &__cal {
+                    &__cal,
+                    &__kg {
                         color: #74798c;
                         font-size: 14px;
                         margin: 0;

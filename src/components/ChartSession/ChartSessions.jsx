@@ -1,28 +1,20 @@
-import React, { PureComponent, useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { useParams } from 'react-router-dom'
-import { LineChart, Line, AreaChart, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
-import { USER_AVERAGE_SESSIONS } from '../../mock/dataMocked.js'
-import useUserInfos from '../../hooks/useUserInfos.jsx'
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
 import useUserSession from '../../hooks/useUserSession'
-
-import './ChartSession.scss'
 import TooltipSession from '../TooltipSession/TooltipSession'
+import './ChartSession.scss'
 
+/**
+ * Render a AreaChart with user average sessions data
+ * @param {string} className
+ * @return {JSX}
+ */
 export default function ChartSession({ className }) {
   const { userID } = useParams()
   const refEventChart = useRef(0)
-  // let setData = []
-  // const request = useUserInfos(userID)
-  // setData.push(request.data.data)
-  // console.log('request', request.data, setData)
 
-  //*mocked data
-  // const userSession = USER_AVERAGE_SESSIONS.find((data) => data.userId === parseInt(userID))
-  // console.log('userSession', userSession)
-
-  // let setData = []
   let userSession = useUserSession(userID)
-  console.log('userSession', userSession)
   const formatData = async () => {
     userSession = userSession.data.data.sessions.map(function (session) {
       switch (session.day) {
@@ -44,58 +36,17 @@ export default function ChartSession({ className }) {
           return { ...session }
       }
     })
-    //res = res.reverse() //pour réordonner le tableau dans le sens contraire
   }
   formatData()
-  console.log('res test async usersession', userSession)
-
-  // let setData = []
-  // const reqUserSession = useUserSession(userID)
-  // const userSession = reqUserSession.data.data
-  // // setData.push(userSession.data.sessions)
-  // console.log('request2', reqUserSession, userSession /* , setData */) //  TypeError: Cannot read properties of undefined (reading 'sessions')
-
-  // const res = userSession.sessions.map(function (session) {
-  //   switch (session.day) {
-  //     case 1:
-  //       return { ...session, day: 'L' }
-  //     case 2:
-  //       return { ...session, day: 'M' }
-  //     case 3:
-  //       return { ...session, day: 'M' }
-  //     case 4:
-  //       return { ...session, day: 'J' }
-  //     case 5:
-  //       return { ...session, day: 'V' }
-  //     case 6:
-  //       return { ...session, day: 'S' }
-  //     case 7:
-  //       return { ...session, day: 'D' }
-  //     default:
-  //       return { ...session }
-  //   }
-  // })
-
-  //4rendus
-  // la tooltip sur session apparait au niveau de la souris et pas à coté du rond
-  //vérifier que 0 et 8 n'existe pas et le faire
-  //console.log(userSession.sessions)
-
-  //
 
   function handleHover(e) {
-    //const div = document.getElementsByClassName('session-responsive')[0]
-    const div = refEventChart.current
+    const div = refEventChart.current.current
     if (e.isTooltipActive) {
       const windowWidth = div.clientWidth
       const mouseXpercentage = Math.round((e.activeCoordinate.x / windowWidth) * 100)
-      // div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(175,0,0,1) ${mouseXpercentage}%, rgba(175,0,0,1) 100%)`
-      //div.style.backgroundColor = `linear-gradient(90deg, rgba(255,0,0,0) ${mouseXpercentage}%, rgba(0,0,0,0.2) ${mouseXpercentage}%, rgba(0,0,0,0.2) 100%)`
-      refEventChart.current.style.backgroundColor = 'blue'
-    } /* else if (!e.isTooltipActive) {
-              div.style.background = `rgba(255,0,0,0)`
-            } */ else if (!div.mouseover) {
-      div.style.backgroundColor = `rgba(255,0,0,0)`
+      div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(175,0,0,0.5) ${mouseXpercentage}%, rgba(175,0,0,0.5) 100%)`
+    } else if (!e.mouseover) {
+      div.style.background = `none`
     }
   }
 
@@ -105,74 +56,32 @@ export default function ChartSession({ className }) {
         <h2 className={className + '__head__title'}>Durée moyenne des sessions</h2>
       </div>
       <ResponsiveContainer height="100%" width="100%" className="session-responsive" ref={refEventChart} fill="#FF0D0D">
-        <AreaChart
-          height="100%"
-          width="100%"
-          data={userSession} /* barCategoryGap={1} */ /* userSession.sessions for mocked*/
-          onMouseMove={(e) => {
-            const div = refEventChart.current.current
-            if (e.isTooltipActive) {
-              const windowWidth = div.clientWidth
-              const mouseXpercentage = Math.round((e.activeCoordinate.x / windowWidth) * 100)
-              div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(175,0,0,1) ${mouseXpercentage}%, rgba(175,0,0,1) 100%)`
-            } else if (!e.mouseover) {
-              /* !div. */
-              div.style.background = `rgba(255,0,0,0)`
-            }
-          }}
-          //second tentative
-          //onMouseMove={(e) => handleHover(e)}
-          //
-          fill="#FF0D0D"
-        >
+        <AreaChart height="100%" width="100%" data={userSession} onMouseMove={(e) => handleHover(e)} fill="#FF0D0D">
           <XAxis
             className="xAxis"
             dataKey="day"
-            //type="number" // allow to compte normally 0, 2, 6, 6, 8 excepté avec datamax ou le premier commence à 0 au lieu de 0
             axisLine={false}
             tickLine={false}
-            tick={{ fontSize: 12, stroke: 'white', opacity: 0.8 /* , padding: { right: 15, left: 15 } marche pas*/ /* , width: 100 */ }}
-            padding={{ left: -5, right: -5 }} //à -18 le premeir n'est plus pris en compte 0 mais cela
-            //domain={['dataMin', 'dataMax + 1']} //sert plus/pas
-            /* dy={15} */ stroke="1 1"
+            tick={{ fontSize: 12, stroke: 'white', opacity: 0.8 }}
+            padding={{ left: -5, right: -5 }}
+            stroke="1 1"
             dy={-50}
-            //dx={(-15, -15)}
-            // dx={-8}
-            minTickGap={3} // =default 5
             interval="preserveStartEnd"
-            //offset={8} //marche pas
-            //tickInterval={5} //change rien
-            //xAxisId={0}
-            /* label={{
-              position: 'bottom',
-            }} */
-            //x={[10, 20, 30, 40, 50, 60, 70]}
-            //tickMargin={{ right: 0 }} // marche aps error
-            //tickMargin={5} // change la hauteur el la legend ce que jai mis en dy
-            //ticks={[1, 2, 3, 4, 5, 6, 7]}
-            //domain={[1, 7]}
-            mirror={true} // allow to see label (L, M,...) inside the chart au lieu d'outside
-            //scale="auto"
+            mirror={true}
           />
-          <YAxis dataKey="sessionLength" type="number" hide={true} /> {/* sessionLength => minute */}
-          <Tooltip content={<TooltipSession />} wrapperStyle={{ outline: 'none' }} cursor={false} />{' '}
-          {/* wrapperStyle={{ outline: "none" }} permet d'enlever le cadre noir à l'intérieur de la toolbox */}
+          <YAxis dataKey="sessionLength" type="number" hide={true} />
+          <Tooltip content={<TooltipSession />} wrapperStyle={{ outline: 'none' }} cursor={false} />
           <Area
-            className="areaTest"
             type="monotone"
             dataKey="sessionLength"
             stroke="#ffffff"
-            fill="rgba(255,0,0,0)" //before FF4D4D - rgba(255,0,0,0) - #FF0D0D
+            fill="none"
             dot={false}
-            activeDot={{ r: 4, strokeWidth: 4, stroke: 'white' /* , onMouseOver: '' */ }}
+            activeDot={{ r: 4, strokeWidth: 4, stroke: 'white' }}
           />
           <ReferenceLine strokeWidth={5} />
         </AreaChart>
       </ResponsiveContainer>
     </article>
-
-    // (
-    //   const firstLegendX = document.querySelector(".recharts-cartesian-axis-ticks g text span");
-    // )
   )
 }

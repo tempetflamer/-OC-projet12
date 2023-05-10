@@ -1,6 +1,11 @@
 import { api } from '../utils/getDataApi.js'
 import { useEffect, useState } from 'react'
 
+/**
+ * Get User Activity Hook
+ * @param {Number} id
+ * @returns {Object} data, isLoading, error
+ */
 export default function useUserActivity(id) {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -11,20 +16,15 @@ export default function useUserActivity(id) {
     setError(undefined)
     setIsLoading(true)
 
+    /**
+     * Get User Activity and set setData, setIsLoading, setError
+     * @param {Number} id
+     */
     const getUserInfos = async (id) => {
       try {
-        let res = await api.get(`/user/${id}/activity`)
-        console.log('res activity userActivity', res)
-        // const resF = res.data.data.sessions.map(function (data) {
-        //   let splitDays = data.day.split('-').pop()
-        //   if (splitDays.charAt(0) === '0') {
-        //     splitDays = splitDays.substring(1)
-        //   }
-        //   return { ...data, day: splitDays }
-        // })
+        const res = await api.get(`/user/${id}/activity`)
         setError(undefined)
         setIsLoading(false)
-        //setData(resF)
         setData(res.data.data)
       } catch (e) {
         setData([])
@@ -34,6 +34,5 @@ export default function useUserActivity(id) {
     }
     getUserInfos(id)
   }, [])
-  console.log('data activity fetch', data)
   return { data, isLoading, error }
 }

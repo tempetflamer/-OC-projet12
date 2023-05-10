@@ -3,11 +3,14 @@ import { useParams } from 'react-router-dom'
 import useUserInfos from '../../hooks/useUserInfos.jsx'
 import './HeroText.scss'
 
+/**
+ * Render the hero text for the user
+ * @return {JSX}
+ */
 export default function HeroText() {
   const { userID } = useParams()
   const userInfo = useUserInfos(userID)
   const firstname = userInfo?.data?.userInfos?.firstName
-  console.log('userInfo Herotext', userInfo)
 
   return (
     <section className="hero">

@@ -1,11 +1,9 @@
+@import "../../utils/mixins.scss";
+
 .charts {
     &__chart-session {
         background: #ff0000;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-        border-radius: 5px;
-        width: 258px;
-        height: 263px;
-        //padding: 0.25rem;
+        @include smallBoxChart;
         overflow: hidden;
 
         @media screen and (max-width: 1280px) {
@@ -17,12 +15,6 @@
 
         &__head {
             position: relative;
-            /* chanegr après ajout de padding dans chart-session
-                        padding-left: 2rem;
-            padding-top: 1.25rem;
-            */
-            // padding-left: 1.75rem;
-            // padding-top: 1rem;
             width: 12rem;
             &__title {
                 position: absolute;
@@ -33,7 +25,7 @@
                 font-size: 15px;
                 color: #ffffff;
                 mix-blend-mode: normal;
-                opacity: 0.7; // normalement 0.5 mais ça rend aps du tout pareil et vraiment très clair
+                opacity: 0.7;
                 font-weight: 500;
                 line-height: 1.5rem;
             }
@@ -42,32 +34,5 @@
 }
 
 .session-responsive {
-    // position: relative;
-    // z-index: 2;
     padding-top: 2.5rem;
-    background: #ff0000;
-}
-
-.recharts-layer .recharts-cartesian-axis .recharts-xAxis .xAxis {
-    margin-bottom: -25px !important;
-}
-
-.recharts-cartesian-axis {
-    position: relative;
-    padding-bottom: -15px !important;
-    margin-bottom: -65px !important;
-    color: aqua;
-    width: 40px;
-    border: blue;
-}
-
-.xAxis {
-    margin-left: 20px !important;
-    margin-right: 20px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-}
-
-.areaTest {
-    padding: 2rem;
 }

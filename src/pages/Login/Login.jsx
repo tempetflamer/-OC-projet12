@@ -1,13 +1,11 @@
-import { Navigate } from 'react-router-dom'
 import './Login.scss'
-import ButtonConnection from '../../components/ButtonConnection'
+import ButtonConnection from '../../components/ButtonConnection/ButtonConnection'
 
 import logoWhite from '../../assets/logo-icon-white.svg'
 import logoName from '../../assets/logo-name.svg'
 
 export default function Login() {
   let users = [12, 18]
-  console.log('render login')
 
   return (
     <div className="connexion">

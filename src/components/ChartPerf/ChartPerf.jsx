@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
-import useFormaterUserPerf from '../../hooks/useFormaterUserPerf'
-import useUserPerf from '../../hooks/useFormaterUserPerf'
-
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
+import useUserPerf from '../../hooks/useUserPerf'
 import './ChartPerf.scss'
 
+/**
+ * Render a RadarChart with user performance data
+ * @param {string} className
+ * @return {JSX}
+ */
 export default function ChartPerf({ className }) {
   const { userID } = useParams()
   // //* en faite je peux récupérer l'id directement dans useparam sur chaque page plutôt que de le transmettre
   // const [data, setData] = useState([])
 
-  // //* use effetc marche pas, aucune donnée ne charge, data null
+  // //* use effect marche pas, aucune donnée ne charge, data null
   // useEffect(() => {
   //   async function dataPerf() {
   //     const request = await useUserPerf(18)
@@ -43,7 +46,7 @@ export default function ChartPerf({ className }) {
 
   // console.log('data test', data)
 
-  // Infinite loop // sans async Cannot read properties of undefined (reading 'map')
+  //* Infinite loop // sans async Cannot read properties of undefined (reading 'map')
   // async function dataPerf() {
   //   const request = await useUserPerf(18)
   //   console.log('request chartPerf', request)
@@ -86,7 +89,7 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
   //   console.log('data intégré en focntion', data /* , getData */)
   // }
 
-  // base Cannot read properties of undefined (reading 'map')
+  //* base Cannot read properties of undefined (reading 'map')
   // let res = useUserPerf(userID)
   // console.log('userPerf chartperf', res, res.data.data) // si je fais res.data.data ça marche pas alors que pourtant il y'a encore un élément data dedans
   // if (!res) return alert('data error')
@@ -109,7 +112,7 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
   //   }
   // })
 
-  //Base + C'est bon ça marche finalement
+  //* Base + C'est bon ça marche finalement
   let res = useUserPerf(userID)
   console.log('userPerf chartperf', res, res.data.data)
   const formatData = async () => {
@@ -263,7 +266,6 @@ See https://reactjs.org/link/invalid-hook-call for tips about how to debug and f
     <article className={className}>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={res} width="100%" height="100%">
-          {/* //userPerf.data */}
           <PolarGrid />
           <PolarAngleAxis dataKey="kind" stroke="white" tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
           <Radar name="Performance" dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />

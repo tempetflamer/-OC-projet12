@@ -1,6 +1,6 @@
 .charts__chart-session {
     .tooltip {
-        margin-right: 0.4rem; // to avoid the last 7 to be hors zone
+        margin-right: 0.4rem;
         background-color: white;
         width: 46px;
         height: 28px;
@@ -8,7 +8,7 @@
         align-items: center;
         justify-content: center;
         &__text {
-            font-size: 10px; //techniquement 8px
+            font-size: 10px;
             line-height: 24px;
             text-align: center;
         }

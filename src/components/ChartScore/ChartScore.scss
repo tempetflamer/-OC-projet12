@@ -1,16 +1,11 @@
+@import "../../utils/mixins.scss";
+
 .charts {
     &__chart-score {
         position: relative;
         background: #fbfbfb;
-        //en faire une mixin
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-        border-radius: 5px;
-        width: 258px;
-        height: 263px;
+        @include smallBoxChart;
         padding: 0.5rem;
-        //display: flex;
-        //align-items: center;
-        //justify-content: center;
 
         @media screen and (max-width: 1280px) {
             width: 30%;
@@ -18,13 +13,9 @@
             flex-direction: column;
             align-items: center;
         }
-        //a revoir
         @media screen and (max-width: 960px) {
             width: 100%;
             height: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .wrap-container {

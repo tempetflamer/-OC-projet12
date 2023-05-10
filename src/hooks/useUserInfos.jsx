@@ -1,6 +1,11 @@
 import { api } from '../utils/getDataApi.js'
 import { useEffect, useState } from 'react'
 
+/**
+ * Get User Infos Hook
+ * @param {Number} id
+ * @returns {Object} data, isLoading, error
+ */
 export default function useUserInfos(id) {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -11,13 +16,15 @@ export default function useUserInfos(id) {
     setError(undefined)
     setIsLoading(true)
 
+    /**
+     * Get User Infos and set setData, setIsLoading, setError
+     * @param {Number} id
+     */
     const getUserInfos = async (id) => {
       try {
         const res = await api.get(`/user/${id}`)
         setError(undefined)
         setIsLoading(false)
-        // console.log('res', res)
-        // console.log('res.data', res.data)
         setData(res.data.data)
       } catch (e) {
         setData([])
@@ -27,6 +34,5 @@ export default function useUserInfos(id) {
     }
     getUserInfos(id)
   }, [])
-  console.log('data', data)
   return { data, isLoading, error }
 }

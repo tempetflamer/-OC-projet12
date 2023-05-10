@@ -1,13 +1,15 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-
 import ChartActivity from '../ChartActivity/ChartActivity'
 import ChartSession from '../ChartSession/ChartSessions'
 import ChartPerf from '../ChartPerf/ChartPerf'
 import ChartScore from '../ChartScore/ChartScore'
-
 import './Charts.scss'
 
+/**
+ * Displays section containing all charts
+ * @param {string} className
+ * @return {JSX}
+ */
 export default function Charts({ className }) {
   return (
     <section className={className}>
