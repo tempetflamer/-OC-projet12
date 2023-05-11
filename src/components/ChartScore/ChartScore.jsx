@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import useUserScore from '../../hooks/useUserInfos'
@@ -14,8 +14,14 @@ export default function ChartScore({ className }) {
   const colors = ['#ff0000', '#FBFBFB']
   const { userID } = useParams()
   const { data, isLoading, error } = useUserScore(userID)
-  console.log('memory Score', isLoading, error, data)
-  const score = [{ value: data.todayScore || data.score }, { value: 1 - (data.todayScore || data.score) }]
+  const [score, setScore] = useState()
+
+  useEffect(() => {
+    if (!isLoading && !error && data.id) {
+      const formatScore = [{ value: data.todayScore || data.score }, { value: 1 - (data.todayScore || data.score) }]
+      setScore(formatScore)
+    }
+  }, [isLoading, error, data])
 
   if (!score) {
     return ''

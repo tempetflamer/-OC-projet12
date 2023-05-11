@@ -16,6 +16,9 @@
         &__head {
             position: relative;
             width: 12rem;
+            @media screen and (max-width: 960px) {
+                width: auto;
+            }
             &__title {
                 position: absolute;
                 z-index: 2;

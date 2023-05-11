@@ -3,7 +3,7 @@ import Sidebar from '../../components/Sidebar/Sidebar.jsx'
 import Layout from '../../components/Layout/Layout.jsx'
 import HeroText from '../../components/HeroText/HeroText.jsx'
 import Charts from '../../components/Charts/Charts.jsx'
-import UserPerf from '../../components/userPerf/userPerf.jsx'
+import UserPerf from '../../components/UserPerf/UserPerf.jsx'
 
 import './Dashboard.scss'
 

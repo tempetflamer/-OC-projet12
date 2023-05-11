@@ -20,8 +20,6 @@ export default function Charts({ className }) {
         <ChartPerf className={className + '__chart-perf'} />
         <ChartScore className={className + '__chart-score'} />
       </div>
-
-      <div></div>
     </section>
   )
 }

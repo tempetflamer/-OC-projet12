@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useUserInfos from '../../hooks/useUserInfos.jsx'
 import './HeroText.scss'
@@ -9,9 +9,19 @@ import './HeroText.scss'
  */
 export default function HeroText() {
   const { userID } = useParams()
-  const userInfo = useUserInfos(userID)
-  const firstname = userInfo?.data?.userInfos?.firstName
+  const [firstname, setFirstname] = useState()
+  const { data, isLoading, error } = useUserInfos(userID)
 
+  useEffect(() => {
+    if (!isLoading && !error && data.id) {
+      const name = data.userInfos.firstName
+      setFirstname(name)
+    }
+  }, [data, isLoading, error])
+
+  if (!firstname) {
+    return ''
+  }
   return (
     <section className="hero">
       <h1 className="hero__title">

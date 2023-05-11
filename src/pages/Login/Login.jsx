@@ -1,6 +1,5 @@
 import './Login.scss'
 import ButtonConnection from '../../components/ButtonConnection/ButtonConnection'
-
 import logoWhite from '../../assets/logo-icon-white.svg'
 import logoName from '../../assets/logo-name.svg'
 

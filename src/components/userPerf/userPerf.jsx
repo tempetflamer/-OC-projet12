@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import UserKeyData from '../UserKeyData/UserKeyData'
 import useUserInfos from '../../hooks/useUserInfos.jsx'
-import './userPerf.scss'
+import './UserPerf.scss'
 import iconEnergy from '../../assets/energy.svg'
 import iconChicken from '../../assets/chicken.svg'
 import iconApple from '../../assets/apple.svg'

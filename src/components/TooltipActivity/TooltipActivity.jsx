@@ -6,7 +6,7 @@ import './TooltipActivity.scss'
  * Display the tooltip when hovering over the chart, change for each column
  * @param {boolean} active
  * @param {array} payload
- * @returns
+ * @returns {JSX}
  */
 export default function TooltipActivity({ active, payload }) {
   if (active && payload && payload.length) {
