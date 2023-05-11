@@ -1,10 +1,9 @@
 import { api } from '../utils/getDataApi.js'
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
- * Get User Infos Hook
- * @param {Number} id
- * @returns {Object} data, isLoading, error
+ * Get User Infos {data, isLoading, error}
  */
 export default function useUserInfos(id) {
   const [data, setData] = useState([])
@@ -17,7 +16,7 @@ export default function useUserInfos(id) {
     setIsLoading(true)
 
     /**
-     * Get User Infos and set setData, setIsLoading, setError
+     * Set setData, setIsLoading, setError with User Infos data
      * @param {Number} id
      */
     const getUserInfos = async (id) => {
@@ -35,4 +34,8 @@ export default function useUserInfos(id) {
     getUserInfos(id)
   }, [])
   return { data, isLoading, error }
+}
+
+useUserInfos.propTypes = {
+  id: PropTypes.number,
 }

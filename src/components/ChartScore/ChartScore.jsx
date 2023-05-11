@@ -7,8 +7,6 @@ import './ChartScore.scss'
 
 /**
  * Render a PieChart with user score
- * @param {string} className
- * @return {JSX}
  */
 export default function ChartScore({ className }) {
   const colors = ['#ff0000', '#FBFBFB']

@@ -5,7 +5,6 @@ import Error404 from './pages/Error404/Error404'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 import Header from './components/Header/Header'
-
 import logo from './assets/logo.svg'
 
 function App() {

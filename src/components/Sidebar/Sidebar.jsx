@@ -7,10 +7,6 @@ import iconSwim from '../../assets/icon-natation.svg'
 import iconTrain from '../../assets/icon-musculation.svg'
 import iconCycle from '../../assets/icon-velo.svg'
 
-/**
- * Render Sidebar
- * @returns {JSX}
- */
 export default function Sidebar() {
   return (
     <div className="sidebar">

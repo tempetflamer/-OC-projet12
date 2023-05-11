@@ -2,13 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './UserKeyData.scss'
 
-/** display icon with user infos
- * @param  {number} userInfo
- * @param  {string} unite
- * @param  {string} abbUnite
- * @param  {string} color
- * @param  {string} icon url
- * @return {JSX}
+/**
+ * display icon with user infos
  */
 export default function UserKeyData({ userInfo, unite, abbUnite, color, icon }) {
   return (

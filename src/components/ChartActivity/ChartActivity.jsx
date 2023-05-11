@@ -9,8 +9,6 @@ import './ChartActivity.scss'
 
 /**
  * Render a BarChart with user activity Data
- * @param {string} className
- * @return {JSX}
  */
 export default function ChartActivity({ className }) {
   const { userID } = useParams()

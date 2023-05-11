@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 /**
- * Render the connection button with user
- * @param {string} className
- * @param {number} className
- * @param {content} className
- * @return {JSX}
+ * Render the connection button for user
  */
 export default function ButtonConnection({ className, idUser, children }) {
   return (

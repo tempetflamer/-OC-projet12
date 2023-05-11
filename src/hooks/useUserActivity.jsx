@@ -1,10 +1,9 @@
 import { api } from '../utils/getDataApi.js'
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
- * Get User Activity Hook
- * @param {Number} id
- * @returns {Object} data, isLoading, error
+ * Get User Activity {data, isLoading, error}
  */
 export default function useUserActivity(id) {
   const [data, setData] = useState([])
@@ -17,7 +16,7 @@ export default function useUserActivity(id) {
     setIsLoading(true)
 
     /**
-     * Get User Activity and set setData, setIsLoading, setError
+     * Set setData, setIsLoading and setError with User Activity data
      * @param {Number} id
      */
     const getUserInfos = async (id) => {
@@ -35,4 +34,8 @@ export default function useUserActivity(id) {
     getUserInfos(id)
   }, [])
   return { data, isLoading, error }
+}
+
+useUserActivity.propTypes = {
+  id: PropTypes.number,
 }

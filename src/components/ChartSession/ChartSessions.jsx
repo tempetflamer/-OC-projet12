@@ -9,8 +9,6 @@ import './ChartSession.scss'
 
 /**
  * Render a AreaChart with user average sessions data
- * @param {string} className
- * @return {JSX}
  */
 export default function ChartSession({ className }) {
   const { userID } = useParams()

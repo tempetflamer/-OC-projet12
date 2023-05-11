@@ -8,8 +8,6 @@ import './Charts.scss'
 
 /**
  * Displays section containing all charts
- * @param {string} className
- * @return {JSX}
  */
 export default function Charts({ className }) {
   return (

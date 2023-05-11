@@ -1,10 +1,9 @@
 import { api } from '../utils/getDataApi.js'
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
- * Get User Performance Hook
- * @param {Number} id
- * @returns {Object} data, isLoading, error
+ * Get User Performance {data, isLoading, error}
  */
 export default function useUserPerf(id) {
   const [data, setData] = useState([])
@@ -17,7 +16,7 @@ export default function useUserPerf(id) {
     setIsLoading(true)
 
     /**
-     * Get User Performance and set setData, setIsLoading, setError
+     * Set setData, setIsLoading, setError with User Performance data
      * @param {Number} id
      */
     const getUserInfos = async (id) => {
@@ -35,4 +34,8 @@ export default function useUserPerf(id) {
     getUserInfos(id)
   }, [])
   return { data, isLoading, error }
+}
+
+useUserPerf.propTypes = {
+  id: PropTypes.number,
 }
