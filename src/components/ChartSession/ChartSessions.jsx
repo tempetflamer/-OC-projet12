@@ -1,8 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
 import useUserSession from '../../hooks/useUserSession'
 import TooltipSession from '../TooltipSession/TooltipSession'
+import { formatSession } from '../../utils/formatData'
+import PropTypes from 'prop-types'
 import './ChartSession.scss'
 
 /**
@@ -13,31 +15,15 @@ import './ChartSession.scss'
 export default function ChartSession({ className }) {
   const { userID } = useParams()
   const refEventChart = useRef(0)
+  const { data, isLoading, error } = useUserSession(userID)
+  const [formatedData, setFormatedData] = useState()
 
-  let userSession = useUserSession(userID)
-  const formatData = async () => {
-    userSession = userSession.data.data.sessions.map(function (session) {
-      switch (session.day) {
-        case 1:
-          return { ...session, day: 'L' }
-        case 2:
-          return { ...session, day: 'M' }
-        case 3:
-          return { ...session, day: 'M' }
-        case 4:
-          return { ...session, day: 'J' }
-        case 5:
-          return { ...session, day: 'V' }
-        case 6:
-          return { ...session, day: 'S' }
-        case 7:
-          return { ...session, day: 'D' }
-        default:
-          return { ...session }
-      }
-    })
-  }
-  formatData()
+  useEffect(() => {
+    if (!isLoading && !error && data.data) {
+      const res = formatSession(data)
+      setFormatedData(res)
+    }
+  }, [isLoading, error, data])
 
   function handleHover(e) {
     const div = refEventChart.current.current
@@ -50,13 +36,16 @@ export default function ChartSession({ className }) {
     }
   }
 
+  if (!formatedData) {
+    return ''
+  }
   return (
     <article className={className}>
       <div className={className + '__head'}>
         <h2 className={className + '__head__title'}>Durée moyenne des sessions</h2>
       </div>
       <ResponsiveContainer height="100%" width="100%" className="session-responsive" ref={refEventChart} fill="#FF0D0D">
-        <AreaChart height="100%" width="100%" data={userSession} onMouseMove={(e) => handleHover(e)} fill="#FF0D0D">
+        <AreaChart height="100%" width="100%" data={formatedData} onMouseMove={(e) => handleHover(e)} fill="#FF0D0D">
           <XAxis
             className="xAxis"
             dataKey="day"
@@ -84,4 +73,8 @@ export default function ChartSession({ className }) {
       </ResponsiveContainer>
     </article>
   )
+}
+
+ChartSession.propTypes = {
+  className: PropTypes.string,
 }

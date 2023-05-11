@@ -3,6 +3,7 @@ import ChartActivity from '../ChartActivity/ChartActivity'
 import ChartSession from '../ChartSession/ChartSessions'
 import ChartPerf from '../ChartPerf/ChartPerf'
 import ChartScore from '../ChartScore/ChartScore'
+import PropTypes from 'prop-types'
 import './Charts.scss'
 
 /**
@@ -23,4 +24,8 @@ export default function Charts({ className }) {
       <div></div>
     </section>
   )
+}
+
+Charts.propTypes = {
+  className: PropTypes.string,
 }

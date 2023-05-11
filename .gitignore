@@ -1,6 +1,7 @@
 #Perso
 command.md
 *.old.js
+package-lock.json
 
 # Logs
 logs

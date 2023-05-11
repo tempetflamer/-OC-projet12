@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './UserKeyData.scss'
 
 /** display icon with user infos
- * @param  {Object} userInfo
+ * @param  {number} userInfo
  * @param  {string} unite
  * @param  {string} abbUnite
  * @param  {string} color
@@ -10,7 +11,6 @@ import './UserKeyData.scss'
  * @return {JSX}
  */
 export default function UserKeyData({ userInfo, unite, abbUnite, color, icon }) {
-  console.log('icon', icon)
   return (
     <article className="user-perf">
       <div className={'user-perf__container' + ' color--' + color}>
@@ -22,4 +22,12 @@ export default function UserKeyData({ userInfo, unite, abbUnite, color, icon }) 
       </div>
     </article>
   )
+}
+
+UserKeyData.propTypes = {
+  userInfo: PropTypes.number,
+  unite: PropTypes.string,
+  abbUnite: PropTypes.string,
+  color: PropTypes.string,
+  icon: PropTypes.string,
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './TooltipSession.scss'
 
 /**
@@ -16,4 +17,9 @@ export default function TooltipSession({ active, payload }) {
     )
   }
   return null
+}
+
+TooltipSession.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 }

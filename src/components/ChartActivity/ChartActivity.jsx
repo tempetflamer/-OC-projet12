@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import './ChartActivity.scss'
 import TooltipActivity from '../TooltipActivity/TooltipActivity'
 import useUserActivity from '../../hooks/useUserActivity'
+import { formatActivity } from '../../utils/formatData'
+import PropTypes from 'prop-types'
+import './ChartActivity.scss'
 
 /**
  * Render a BarChart with user activity Data
@@ -14,34 +16,10 @@ export default function ChartActivity({ className }) {
   const { userID } = useParams()
   const { data, isLoading, error } = useUserActivity(userID)
   const [formatedData, setFormatedData] = useState()
-  //let userActivity = useUserActivity(userID)
-  // const formatData = async () => {
-  //   userActivity = userActivity.data.sessions.map(function (data) {
-  //     let splitDays = data.day.split('-').pop()
-  //     if (splitDays.charAt(0) === '0') {
-  //       splitDays = splitDays.substring(1)
-  //     }
-  //     return { ...data, day: splitDays }
-  //   })
-  // }
-  // formatData()
-
-  const formatData = () => {
-    //console.log(data)
-    return data.sessions.map(function (data) {
-      let splitDays = data.day.split('-').pop()
-      if (splitDays.charAt(0) === '0') {
-        splitDays = splitDays.substring(1)
-      }
-      return { ...data, day: splitDays }
-    })
-  }
-  //formatData()
 
   useEffect(() => {
-    if (!isLoading && !error && data) {
-      const res = formatData()
-      console.log('res', res)
+    if (!isLoading && !error && data.sessions) {
+      const res = formatActivity(data)
       setFormatedData(res)
     }
   }, [isLoading, error, data])
@@ -88,4 +66,8 @@ export default function ChartActivity({ className }) {
       </ResponsiveContainer>
     </article>
   )
+}
+
+ChartActivity.propTypes = {
+  className: PropTypes.string,
 }

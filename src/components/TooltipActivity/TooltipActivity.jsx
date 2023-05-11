@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './TooltipActivity.scss'
 
 /**
@@ -7,7 +8,7 @@ import './TooltipActivity.scss'
  * @param {array} payload
  * @returns
  */
-export default function TooltipSActivity({ active, payload }) {
+export default function TooltipActivity({ active, payload }) {
   if (active && payload && payload.length) {
     return (
       <div className="tooltip">
@@ -17,4 +18,9 @@ export default function TooltipSActivity({ active, payload }) {
     )
   }
   return null
+}
+
+TooltipActivity.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 }
