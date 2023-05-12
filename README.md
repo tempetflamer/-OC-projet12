@@ -15,7 +15,7 @@ Développez un tableau de bord d'analytics avec React
 
 #### Backend
 
-[Lien projet Backend](https://github.com/tempetflamer/sportsee-micro-api)
+[Lien projet Backend](https://github.com/tempetflamer/OC-projet12-micro-api)
 
 #### Démo site
 
@@ -23,18 +23,18 @@ Développez un tableau de bord d'analytics avec React
 
 ## Prérequis
 
-| Technologie                                                | Utilisation     |
-| ---------------------------------------------------------- | --------------- |
-| [React](https://reactjs.org/)                              | Frontend        |
-| [NPM](https://www.npmjs.com/)                              | Packet manager  |
-| [Sass](https://sass-lang.com/)                             | Styling         |
-| [Recharts.js](https://recharts.org/en-US/)                 | Chart Library   |
-| [React Router](https://reactrouter.com/)                   | Routing         |
-| [Prop Types](https://www.npmjs.com/package/prop-types)     | Type checking   |
-| [Prettier](https://prettier.io/)                           | Code formatting |
-| [ESLint](https://eslint.org/)                              | Code linting    |
-| [JSDoc](https://jsdoc.app/)                                | Documentation   |
-| [Github Page](https://tempetflamer.github.io/OC-projet12/) | Deployment      |
+| Technologie                                                | Utilisation             |
+| ---------------------------------------------------------- | ----------------------- |
+| [React](https://reactjs.org/)                              | Frontend                |
+| [NPM](https://www.npmjs.com/)                              | Gestionnaire de paquets |
+| [Sass](https://sass-lang.com/)                             | Style (préprocesseur)   |
+| [Recharts.js](https://recharts.org/en-US/)                 | Bibliothèque de graphes |
+| [React Router](https://reactrouter.com/)                   | Routage                 |
+| [Prop Types](https://www.npmjs.com/package/prop-types)     | Vérification de type    |
+| [Prettier](https://prettier.io/)                           | Formatage du code       |
+| [ESLint](https://eslint.org/)                              | Analyse de code         |
+| [JSDoc](https://jsdoc.app/)                                | Documentation           |
+| [Github Page](https://tempetflamer.github.io/OC-projet12/) | Déploiement             |
 
 Pour le Backend Nodejs et yarn sont indispensable
 
