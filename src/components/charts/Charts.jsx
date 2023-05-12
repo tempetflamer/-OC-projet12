@@ -1,8 +1,8 @@
 import React from 'react'
-import ChartActivity from '../ChartActivity/ChartActivity'
-import ChartSession from '../ChartSession/ChartSessions'
-import ChartPerf from '../ChartPerf/ChartPerf'
-import ChartScore from '../ChartScore/ChartScore'
+import ChartActivity from '../ChartActivity/ChartActivity.jsx'
+import ChartSession from '../ChartSession/ChartSessions.jsx'
+import ChartPerf from '../ChartPerf/ChartPerf.jsx'
+import ChartScore from '../ChartScore/ChartScore.jsx'
 import PropTypes from 'prop-types'
 import './Charts.scss'
 

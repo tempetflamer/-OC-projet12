@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import UserKeyData from '../UserKeyData/UserKeyData'
+import UserKeyData from '../UserKeyData/UserKeyData.jsx'
 import useUserInfos from '../../hooks/useUserInfos.jsx'
 import './UserPerf.scss'
 import iconEnergy from '../../assets/energy.svg'

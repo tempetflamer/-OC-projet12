@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import TooltipActivity from '../TooltipActivity/TooltipActivity'
+import TooltipActivity from '../TooltipActivity/TooltipActivity.jsx'
 import useUserActivity from '../../hooks/useUserActivity'
 import { formatActivity } from '../../utils/formatData'
 import PropTypes from 'prop-types'

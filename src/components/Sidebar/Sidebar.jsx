@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
 import './Sidebar.scss'
 import iconMedi from '../../assets/icon-meditation.svg'
 import iconSwim from '../../assets/icon-natation.svg'

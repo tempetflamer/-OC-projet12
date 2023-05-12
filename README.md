@@ -1,6 +1,25 @@
 # Openclassroom Projet 12 - SportSee
 
+Développez un tableau de bord d'analytics avec React
+
+## Ressources
+
+#### Maquette Figma
+
 ![maquette](https://github.com/tempetflamer/Assets/blob/main/oc/oc12/maquette.jpg?raw=true)
+[Lien Figma](https://tempetflamer.github.io/OC-projet12/)
+
+#### Kanban
+
+[Lien Kanban](https://openclassrooms.notion.site/Tableau-de-bord-SportSee-6686aa4b5f44417881a4884c9af5669e)
+
+#### Backend
+
+[Lien projet Backend](https://github.com/tempetflamer/sportsee-micro-api)
+
+#### Démo site
+
+[Lien démo site mocked data](https://github.com/tempetflamer/OC-projet12)
 
 ## Prérequis
 
