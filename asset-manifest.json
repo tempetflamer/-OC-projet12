@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/OC-projet12/static/css/main.505b6777.css",
+    "main.js": "/OC-projet12/static/js/main.3ea2de32.js",
+    "static/media/logo.svg": "/OC-projet12/static/media/logo.837414860efdf652f26ae7be654e06c5.svg",
+    "static/media/logo-name.svg": "/OC-projet12/static/media/logo-name.c730ec086241197320ebbebe59f749e3.svg",
+    "static/media/icon-natation.svg": "/OC-projet12/static/media/icon-natation.bc12b705d445672f550a8441d581c700.svg",
+    "static/media/logo-icon-white.svg": "/OC-projet12/static/media/logo-icon-white.e371e90aa396a47031a13a2f31031675.svg",
+    "static/media/icon-velo.svg": "/OC-projet12/static/media/icon-velo.fe885ecda828d3e2f637bb3b675db76c.svg",
+    "static/media/apple.svg": "/OC-projet12/static/media/apple.95581ba1b204199334e122af4784ab16.svg",
+    "static/media/chicken.svg": "/OC-projet12/static/media/chicken.ffbc3b88a759c706993bb26fbd66113b.svg",
+    "static/media/icon-meditation.svg": "/OC-projet12/static/media/icon-meditation.76760efccddf14928ee9263744c1b6e6.svg",
+    "static/media/cheeseburger.svg": "/OC-projet12/static/media/cheeseburger.18f60e0efe37e86bcac036d673f0bab0.svg",
+    "static/media/energy.svg": "/OC-projet12/static/media/energy.25fef86ed5860200bdf90f9cd185e1e3.svg",
+    "index.html": "/OC-projet12/index.html",
+    "static/media/icon-musculation.svg": "/OC-projet12/static/media/icon-musculation.9d22814b98d0ca386d9ddacded4eae80.svg",
+    "main.505b6777.css.map": "/OC-projet12/static/css/main.505b6777.css.map",
+    "main.3ea2de32.js.map": "/OC-projet12/static/js/main.3ea2de32.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.505b6777.css",
+    "static/js/main.3ea2de32.js"
+  ]
+}
