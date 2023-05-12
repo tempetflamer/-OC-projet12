@@ -14,7 +14,6 @@ export default function ChartSession({ className }) {
   const { userID } = useParams()
   const refEventChart = useRef(0)
   const { data, isLoading, error } = useUserSession(userID)
-  console.log('data', data, isLoading, error)
   const [formatedData, setFormatedData] = useState()
 
   useEffect(() => {
