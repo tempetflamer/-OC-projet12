@@ -21,7 +21,7 @@ export const formatActivity = (data) => {
  * @returns {Array}
  */
 export const formatSession = (data) => {
-    return data.data.sessions.map(function (session) {
+    return data.sessions.map(function (session) {
         switch(session.day) {
             case 1:
                 return { ...session, day: 'L' }

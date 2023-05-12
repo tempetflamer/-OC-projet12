@@ -14,15 +14,21 @@ export default function ChartSession({ className }) {
   const { userID } = useParams()
   const refEventChart = useRef(0)
   const { data, isLoading, error } = useUserSession(userID)
+  console.log('data', data, isLoading, error)
   const [formatedData, setFormatedData] = useState()
 
   useEffect(() => {
-    if (!isLoading && !error && data.data) {
+    if (!isLoading && !error && data.sessions) {
       const res = formatSession(data)
       setFormatedData(res)
     }
   }, [isLoading, error, data])
 
+  /**
+   * This function allows the display of a filter after hovering over the columns of the graph
+   * The filter is applied on all columns passed from right to left
+   * @param {object} e event onMouseMove on the chart
+   */
   function handleHover(e) {
     const div = refEventChart.current.current
     if (e.isTooltipActive) {

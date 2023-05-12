@@ -24,7 +24,7 @@ export default function useUserInfos(id) {
         const res = await api.get(`/user/${id}/average-sessions`)
         setError(undefined)
         setIsLoading(false)
-        setData(res.data)
+        setData(res.data.data)
       } catch (e) {
         setData([])
         setError(e)

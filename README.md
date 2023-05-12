@@ -19,7 +19,7 @@ Développez un tableau de bord d'analytics avec React
 
 #### Démo site
 
-[Lien démo site mocked data](https://github.com/tempetflamer/OC-projet12)
+[Lien démo site mocked data](https://tempetflamer.github.io/OC-projet12/)
 
 ## Prérequis
 
