@@ -8,6 +8,10 @@ import './ChartPerf.scss'
 
 /**
  * Render a RadarChart with user performance data
+ * @component
+ * @name ChartPerf
+ * @param {string} className - classname given to the article element
+ * @returns {JSX.Element} - Return a RadarChart containing user's performance data
  */
 export default function ChartPerf({ className }) {
   const { userID } = useParams()

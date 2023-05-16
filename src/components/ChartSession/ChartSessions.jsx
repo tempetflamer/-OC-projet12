@@ -8,7 +8,11 @@ import PropTypes from 'prop-types'
 import './ChartSession.scss'
 
 /**
- * Render a AreaChart with user average sessions data
+ * Render a AreaChart with user's average sessions data
+ * @component
+ * @name ChartSession
+ * @param {string} className - classname given to the article element
+ * @returns {JSX.Element} - Return an AreaChart containing user's average sessions data
  */
 export default function ChartSession({ className }) {
   const { userID } = useParams()
@@ -24,8 +28,11 @@ export default function ChartSession({ className }) {
   }, [isLoading, error, data])
 
   /**
-   * This function allows the display of a filter after hovering over the columns of the graph
+   * This function allows the display of a filter after hovering over the columns of the graph,
    * The filter is applied on all columns passed from right to left
+   * @function
+   * @name handleHover
+   * @memberof ChartSession
    * @param {object} e event onMouseMove on the chart
    */
   function handleHover(e) {

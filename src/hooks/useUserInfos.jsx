@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * Get User Infos {data, isLoading, error}
+ * Hook to get User Infos
+ * @function
+ * @name useUserInfos
+ * @param {number} id - user ID
+ * @returns {object} - Return {data, isLoading, error} to manage the state of the hook
  */
 export default function useUserInfos(id) {
   const [data, setData] = useState([])
@@ -17,6 +21,9 @@ export default function useUserInfos(id) {
 
     /**
      * Set setData, setIsLoading, setError with User Infos data
+     * @function
+     * @name getUserInfos
+     * @memberof useUserInfos
      * @param {Number} id
      */
     const getUserInfos = async (id) => {

@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * Get User Average Session {data, isLoading, error}
+ * Hook to get User Sessions
+ * @function
+ * @name useUserSessions
+ * @param {number} id - user ID
+ * @returns {object} - Return {data, isLoading, error} to manage the state of the hook
  */
 export default function useUserInfos(id) {
   const [data, setData] = useState([])
@@ -17,9 +21,12 @@ export default function useUserInfos(id) {
 
     /**
      * Set setData, setIsLoading, setError with User Average Session
+     * @function
+     * @name getUserSession
+     * @memberof useUserSessions
      * @param {Number} id
      */
-    const formatUserSession = async (id) => {
+    const getUserSession = async (id) => {
       try {
         const res = await api.get(`/user/${id}/average-sessions`)
         setError(undefined)
@@ -31,7 +38,7 @@ export default function useUserInfos(id) {
         setIsLoading(false)
       }
     }
-    formatUserSession(id)
+    getUserSession(id)
   }, [])
   return { data, isLoading, error }
 }

@@ -10,6 +10,9 @@ import iconBurger from '../../assets/cheeseburger.svg'
 
 /**
  * Display of the section containing all userKeyDatas
+ * @component
+ * @name userPerf
+ * @returns {JSX.Element} - Return all the user's keyData to display
  */
 export default function userPerf() {
   const { userID } = useParams()

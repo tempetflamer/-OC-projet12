@@ -6,6 +6,12 @@ import iconSwim from '../../assets/icon-natation.svg'
 import iconTrain from '../../assets/icon-musculation.svg'
 import iconCycle from '../../assets/icon-velo.svg'
 
+/**
+ * The sidebar is a second menu on the dashboard displayed vertically on the left of the screen
+ * @component
+ * @name Sidebar
+ * @returns {JSX.Element} - Return the Sidebar
+ */
 export default function Sidebar() {
   return (
     <div className="sidebar">

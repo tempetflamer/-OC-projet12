@@ -6,7 +6,11 @@ import PropTypes from 'prop-types'
 import './ChartScore.scss'
 
 /**
- * Render a PieChart with user score
+ * Render a PieChart with user's score data
+ * @component
+ * @name ChartScore
+ * @param {string} className - classname given to the article element
+ * @returns {JSX.Element} - Return an PieChart containing user's score data
  */
 export default function ChartScore({ className }) {
   const colors = ['#ff0000', '#FBFBFB']

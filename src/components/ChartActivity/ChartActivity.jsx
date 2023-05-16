@@ -8,7 +8,11 @@ import PropTypes from 'prop-types'
 import './ChartActivity.scss'
 
 /**
- * Render a BarChart with user activity Data
+ * Render a BarChart with user activity data
+ * @component
+ * @name ChartActivity
+ * @param {string} className - classname given to the article element
+ * @returns {JSX.Element} - Return a BarChart containing user's activity data
  */
 export default function ChartActivity({ className }) {
   const { userID } = useParams()

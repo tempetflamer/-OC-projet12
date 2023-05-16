@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * Get User Activity {data, isLoading, error}
+ * Hook to get User Activity
+ * @function
+ * @name useUserActivity
+ * @param {number} id - user ID
+ * @returns {object} - Return {data, isLoading, error} to manage the state of the hook
  */
 export default function useUserActivity(id) {
   const [data, setData] = useState([])
@@ -17,9 +21,12 @@ export default function useUserActivity(id) {
 
     /**
      * Set setData, setIsLoading and setError with User Activity data
-     * @param {Number} id
+     * @function
+     * @name getUserActivity
+     * @memberof useUserActivity
+     * @param {Number} id - user ID
      */
-    const getUserInfos = async (id) => {
+    const getUserActivity = async (id) => {
       try {
         const res = await api.get(`/user/${id}/activity`)
         setError(undefined)
@@ -31,7 +38,7 @@ export default function useUserActivity(id) {
         setIsLoading(false)
       }
     }
-    getUserInfos(id)
+    getUserActivity(id)
   }, [])
   return { data, isLoading, error }
 }

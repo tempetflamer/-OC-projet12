@@ -5,6 +5,9 @@ import './HeroText.scss'
 
 /**
  * Render the hero text for the user
+ * @component
+ * @name HeroText
+ * @returns {JSX.Element} - Return the hero content
  */
 export default function HeroText() {
   const { userID } = useParams()

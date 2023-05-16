@@ -4,6 +4,14 @@ import './UserKeyData.scss'
 
 /**
  * display icon with user infos
+ * @component
+ * @name UserKeyData
+ * @param {string} userInfo - Give the quantity
+ * @param {string} unite - Give the quantity unite
+ * @param {string} abbUnite - Give the abbreviation of the quantity unite
+ * @param {string} color - Gives the color of the div container
+ * @param {string} icon - Give path de the icon picture
+ * @returns {JSX.Element} - Return user's keyData
  */
 export default function UserKeyData({ userInfo, unite, abbUnite, color, icon }) {
   return (

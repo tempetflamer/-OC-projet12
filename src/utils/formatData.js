@@ -1,8 +1,30 @@
 /**
  * Formats the user's activity data, replacing the date by by the number of the day
- * e.g. 2020-07-01 by 1
- * @param {object} data 
+ * @function
+ * @name formatActivity
+ * @param {object} data user's activity data
  * @returns {Array}
+ * @example
+ * replace 2020-07-01 by 1
+ * 
+ * Input :
+ * sessions: [
+ *            {
+ *               day: '2020-07-01',
+ *               kilogram: 80,
+ *               calories: 240
+ *           }
+ *           ...
+ *          ]
+ * Output :
+ * sessions: [
+ *            {
+ *               day: '1',
+ *               kilogram: 80,
+ *               calories: 240
+ *           }
+ *           ...
+ *          ]
  */
 export const formatActivity = (data) => {
     return data.sessions.map(function (data) {
@@ -16,9 +38,29 @@ export const formatActivity = (data) => {
 
 /**
  * Formats the user's session data, replacing the day number with the first letter of the day
- * e.g. 1 by L for 'Lundi' (Monday in English)
- * @param {object} data 
+ * @function
+ * @name formatSession
+ * @param {object} data user's sessions data
  * @returns {Array}
+ * @example
+ * replace 1 by L for 'Lundi' (Monday in English)
+ * 
+ * Input :
+ * sessions: [
+ *             {
+ *                 day: 1,
+ *                 sessionLength: 30
+ *             },
+ *             ...
+ *           ]
+ * Output :
+ * sessions: [
+ *            {
+ *                day: 'L',
+ *                sessionLength: 30
+ *            },
+ *            ...
+ *           ]
  */
 export const formatSession = (data) => {
     return data.sessions.map(function (session) {
@@ -45,9 +87,29 @@ export const formatSession = (data) => {
 
 /**
  * Format the user's performance data, replace the category number with the category
- * e.g. 1 by Cardio 
- * @param {object} data 
+ * @function
+ * @name formatPerf
+ * @param {object} data user's performance data
  * @returns {Array}
+ * @example
+ * replace 1 by Cardio 
+ * 
+ * Input :
+ * data: [
+ *             {
+ *                 value: 80,
+ *                 kind: 1
+ *             },
+ *             ...
+ *           ]
+ * Output :
+ * data: [
+ *            {
+ *                value: 80,
+ *                kind: 'Cardio'
+ *            },
+ *            ...
+ *           ]
  */
 export const formatPerf = (data) => {
     return data.data.map((data) => {

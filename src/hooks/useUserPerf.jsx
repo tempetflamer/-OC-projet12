@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * Get User Performance {data, isLoading, error}
+ * Hook to get User Performance
+ * @function
+ * @name useUserPerf
+ * @param {number} id - user ID
+ * @returns {object} - Return {data, isLoading, error} to manage the state of the hook
  */
 export default function useUserPerf(id) {
   const [data, setData] = useState([])
@@ -17,9 +21,12 @@ export default function useUserPerf(id) {
 
     /**
      * Set setData, setIsLoading, setError with User Performance data
+     * @function
+     * @name getUserPerf
+     * @memberof useUserPerf
      * @param {Number} id
      */
-    const getUserInfos = async (id) => {
+    const getUserPerf = async (id) => {
       try {
         const res = await api.get(`/user/${id}/performance`)
         setError(undefined)
@@ -31,7 +38,7 @@ export default function useUserPerf(id) {
         setIsLoading(false)
       }
     }
-    getUserInfos(id)
+    getUserPerf(id)
   }, [])
   return { data, isLoading, error }
 }
