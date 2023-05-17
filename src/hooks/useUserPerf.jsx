@@ -21,9 +21,7 @@ export default function useUserPerf(id) {
 
     /**
      * Set setData, setIsLoading, setError with User Performance data
-     * @function
      * @name getUserPerf
-     * @memberof useUserPerf
      * @param {Number} id
      */
     const getUserPerf = async (id) => {

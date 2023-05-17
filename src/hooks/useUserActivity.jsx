@@ -21,9 +21,7 @@ export default function useUserActivity(id) {
 
     /**
      * Set setData, setIsLoading and setError with User Activity data
-     * @function
      * @name getUserActivity
-     * @memberof useUserActivity
      * @param {Number} id - user ID
      */
     const getUserActivity = async (id) => {

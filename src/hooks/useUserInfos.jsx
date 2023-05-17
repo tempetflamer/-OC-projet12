@@ -21,9 +21,7 @@ export default function useUserInfos(id) {
 
     /**
      * Set setData, setIsLoading, setError with User Infos data
-     * @function
      * @name getUserInfos
-     * @memberof useUserInfos
      * @param {Number} id
      */
     const getUserInfos = async (id) => {

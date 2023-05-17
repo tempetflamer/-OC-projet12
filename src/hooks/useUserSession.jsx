@@ -21,9 +21,7 @@ export default function useUserInfos(id) {
 
     /**
      * Set setData, setIsLoading, setError with User Average Session
-     * @function
      * @name getUserSession
-     * @memberof useUserSessions
      * @param {Number} id
      */
     const getUserSession = async (id) => {

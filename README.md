@@ -7,7 +7,7 @@ Développez un tableau de bord d'analytics avec React
 #### Maquette Figma
 
 ![maquette](https://github.com/tempetflamer/Assets/blob/main/oc/oc12/maquette.jpg?raw=true)
-[Lien Figma](https://tempetflamer.github.io/OC-projet12/)
+[Lien Figma](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?type=design&node-id=0-1&t=sOs7woDMzHj8MbXN-0)
 
 #### Kanban
 
@@ -20,6 +20,10 @@ Développez un tableau de bord d'analytics avec React
 #### Démo site
 
 [Lien démo site mocked data](https://tempetflamer.github.io/OC-projet12/)
+
+#### Documentation JsDoc
+
+[Lien documentation JsDoc du projet](https://tempetflamer.github.io/OC-projet12-jsdoc/)
 
 ## Prérequis
 
@@ -35,8 +39,6 @@ Développez un tableau de bord d'analytics avec React
 | [ESLint](https://eslint.org/)                              | Analyse de code         |
 | [JSDoc](https://jsdoc.app/)                                | Documentation           |
 | [Github Page](https://tempetflamer.github.io/OC-projet12/) | Déploiement             |
-
-Pour le Backend Nodejs et yarn sont indispensable
 
 ## Installation et lancement du projet
 
