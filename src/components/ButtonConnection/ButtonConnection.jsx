@@ -24,4 +24,5 @@ export default function ButtonConnection({ className, idUser, children }) {
 ButtonConnection.propTypes = {
   className: PropTypes.string,
   idUser: PropTypes.number,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }

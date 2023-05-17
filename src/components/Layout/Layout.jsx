@@ -15,4 +15,5 @@ export default function Layout({ children, className }) {
 
 Layout.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
